@@ -14,8 +14,12 @@ app.use('/expenses', router)
 app.listen(process.env.PORT, async () => {
     try {
         await connection;
-        console.log("Successfully connected To Database");
-        console.log("Server running at port :", process.env.PORT);
+        setInterval(() => {
+          fetch(`https://expensesbacked.onrender.com`)
+            .then(res => res.text())
+            .then(body => console.log(`Pinged self: ${body}`))
+            .catch(err => console.error(`Error pinging self: ${err}`));
+        }, 14 * 60 * 1000); // Ping every 14 minutes
       } catch (err) {
         console.log(err);
       }
