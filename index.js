@@ -19,7 +19,7 @@ app.listen(process.env.PORT, async () => {
             .then(res => res.text())
             .then(body => console.log(`Pinged self: ${body}`))
             .catch(err => console.error(`Error pinging self: ${err}`));
-        }, 14 * 60 * 1000); // Ping every 14 minutes
+        }, 120 * 60 * 1000); // Ping every 14 minutes
       } catch (err) {
         console.log(err);
       }
